@@ -90,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
                             " is now DONE. BOOM!", Toast.LENGTH_SHORT).show();
                     mExistedTodo = todo;
                     saveUpdatedTodo();
+                    adapter.notifyDataSetChanged();
 
                 }
             }
@@ -291,91 +292,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         public abstract TodoDao getTodoDao(); // reference to dao
-    }
-
-
-    //------------------REPOSITORY------------------//
-
-    public class TodoRepository{
-        private TodoDatabase mTodoDatabase;
-
-
-        public TodoRepository(Context context){
-            mTodoDatabase = TodoDatabase.getInstance(context);
-        }
-
-        public void insertTodoTask(Todo todo){
-            new InsertAsyncTask(mTodoDatabase.getTodoDao()).execute(todo);
-
-        }
-
-        public void deleteTodo(Todo todo){
-            new DeleteAsyncTask(mTodoDatabase.getTodoDao()).execute(todo);
-        }
-
-        public void updateNote(Todo todo){
-            new UpdateAsyncTask(mTodoDatabase.getTodoDao()).execute(todo);
-
-        }
-
-        public LiveData<Integer> getCountRow() {
-            return mTodoDatabase.getTodoDao().getCount();
-        }
-
-        public LiveData<List<Todo>> retrieveTodos(){
-            return mTodoDatabase.getTodoDao().getTodoNotes();
-            //returns a livedata list of all todos inside the database
-        }
-    }
-
-
-    public class InsertAsyncTask extends AsyncTask<Todo, Void, Void> {
-
-        private TodoDao mTodoDao;
-
-        public InsertAsyncTask(TodoDao todoDao){
-            this.mTodoDao = todoDao;
-        }
-
-        @Override
-        protected Void doInBackground(Todo... todos) {
-            mTodoDao.insertTodo(todos);
-            return null;
-        }
-    }
-
-
-    public class DeleteAsyncTask extends AsyncTask<Todo, Void, Void> {
-
-        private TodoDao mTodoDao;
-        private static final String TAG = "DeleteAsyncTask";
-
-        public DeleteAsyncTask(TodoDao todoDao){
-            this.mTodoDao = todoDao;
-        }
-
-        @Override
-        protected Void doInBackground(Todo... todos) {
-            Log.d(TAG, "doInBackground: thread" + Thread.currentThread().getName());
-            mTodoDao.deleteTodo(todos);
-            return null;
-        }
-    }
-
-    public class UpdateAsyncTask extends AsyncTask<Todo, Void, Void> {
-
-        private TodoDao mTodoDao;
-
-
-        public UpdateAsyncTask(TodoDao todoDao){
-            this.mTodoDao = todoDao;
-        }
-
-        @Override
-        protected Void doInBackground(Todo... todos) {
-            mTodoDao.updateTodo(todos);
-            return null;
-        }
     }
 }
 

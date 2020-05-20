@@ -15,9 +15,9 @@ public class Dialog extends AppCompatDialogFragment {
     private Todo mTodo;
     private ArrayList<Todo> mTodos;
     private MainActivity.TodoAdapter mAdapter;
-    private MainActivity.TodoRepository mTodoRepository;
+    private TodoRepository mTodoRepository;
 
-    public Dialog(Todo todo, ArrayList<Todo> todos, MainActivity.TodoAdapter adapter, MainActivity.TodoRepository repo)
+    public Dialog(Todo todo, ArrayList<Todo> todos, MainActivity.TodoAdapter adapter, TodoRepository repo)
     {
         this.mTodo = todo;
         this.mTodos = todos;
