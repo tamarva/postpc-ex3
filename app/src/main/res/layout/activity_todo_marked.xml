@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TodoMarkedActivity">
+
+    <TextView
+        android:id="@+id/text_view_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textColor="#000"
+        android:textSize="22sp"
+        android:background="#ffffb3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        />
+
+    <TextView
+        android:id="@+id/text_view_content"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textColor="#000"
+        android:textSize="22sp"
+        android:background="#ffffb3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_view_id"
+        />
+
+    <TextView
+        android:id="@+id/text_view_creation_time_stamp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textColor="#000"
+        android:textSize="22sp"
+        android:background="#ffffb3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_view_content"
+        />
+
+
+    <TextView
+        android:id="@+id/text_view_edit_time_stamp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:textColor="#000"
+        android:textSize="22sp"
+        android:background="#ffffb3"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/text_view_creation_time_stamp"
+        />
+
+
+    <Button
+        android:id="@+id/button_unmark"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#FFA07A"
+        android:textColor="#FFFFFF"
+        android:text="unmark_todo"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+
+    <Button
+        android:id="@+id/button_delete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:background="#CD5C5C"
+        android:textColor="#FFFFFF"
+        android:text="delete"
+        android:layout_marginBottom="60dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_unmark" />
+
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
